@@ -1,0 +1,25 @@
+:root{
+  --hue: 220;               /* overwritten in JS */
+  --bg1: hsl(var(--hue) 30% 10%);
+  --bg2: hsl(calc(var(--hue) + 40) 30% 15%);
+  --accent: hsl(calc(var(--hue) + 180) 80% 60%);
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+body{margin:0;color:#fff;background:var(--bg1);}
+.hero{height:100vh;display:grid;place-content:center;text-align:center;}
+.hero__title{font-size:clamp(2.5rem, 8vw, 6rem);margin:0;letter-spacing:.05em;}
+.hero__sub{font-size:1.2rem;opacity:.7;}
+
+.grid{display:grid;gap:2rem;padding:4rem 6vw;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.card{
+  background:linear-gradient(135deg,var(--bg2),var(--accent));
+  border-radius:1rem;
+  padding:2rem;
+  transform-style:preserve-3d;
+  transition:transform .4s cubic-bezier(.25,1,.5,1);
+  will-change:transform;
+}
+.card:hover{transform:perspective(1000px) rotateX(8deg) rotateY(-8deg) scale(1.05);}
+.card h2{margin:.2em 0;font-size:1.5rem;}
+.card p{opacity:.8;line-height:1.4;}
